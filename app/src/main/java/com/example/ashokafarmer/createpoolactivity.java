@@ -71,11 +71,11 @@ public class createpoolactivity extends AppCompatActivity {
                 for (int i = 0; i < mUserItems.size(); i++) {
                     item = item + listItems[mUserItems.get(i)];
                     if (i != mUserItems.size() - 1) {
-                        item = item + ", ";
+                        item = item + "\n";
                     }
                 }
                 //showing the slected items
-                mItemSelected.setText("Selected Lands:"+item);
+                mItemSelected.setText(item);
             }
         });
 
