@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ashokafarmer</string>
+    <string-array name="LandName">
+        <item>Bihta</item>
+        <item>ambagan</item>
+        <item>tops</item>
+        <item>hansraj</item>
+        <item>Mukrao</item>
+
+    </string-array>
+</resources>
