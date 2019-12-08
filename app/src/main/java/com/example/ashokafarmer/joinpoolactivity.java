@@ -1,10 +1,13 @@
 package com.example.ashokafarmer;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -34,14 +37,19 @@ public class joinpoolactivity extends AppCompatActivity implements pooljoinadapt
     //added extra datas for manipulating later(report is not initialised currently)
     public static final String EXTRA_REPORT="imageurl";
     public  static final String EXTRA_AREA="imageHeight";
+    private Toolbar toolbar;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joinpoolactivity);
         mRecyclerView=findViewById(R.id.joinrecyclerview);
         mRecyclerView.setHasFixedSize(true);
-
+         toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if(getSupportActionBar()!=null)
+        {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mpoollist=new ArrayList<>();
 
