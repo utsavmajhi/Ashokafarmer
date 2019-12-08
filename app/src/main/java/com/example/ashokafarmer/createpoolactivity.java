@@ -112,7 +112,7 @@ public class createpoolactivity extends AppCompatActivity {
 
         if(mItemSelected.getText().equals("")||mItemSelected.getText().equals("No Land selected"))
         {
-            Toast.makeText(this, "Please Select Lands to proceed Note:If land name is not showing then contact Engineer/Administartor", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Select Lands to proceed \n Note: If land name is not shown, then contact Engineer/Administartor", Toast.LENGTH_SHORT).show();
         }
         else
         {

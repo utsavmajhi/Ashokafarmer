@@ -18,7 +18,8 @@
 
             <include
                 android:id="@+id/main_page_toolbar"
-                layout="@layout/app_bar_layout">
+                layout="@layout/app_bar_layout"
+                >
 
             </include>
 
@@ -33,15 +34,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/grad">
+                android:background="#ffff99">
 
                 <Button
                     android:id="@+id/joinbtn"
                     android:layout_width="98dp"
                     android:layout_height="41dp"
-                    android:background="@color/md_lime_A400"
+                    android:background="#63bc43"
                     android:onClick="joinpoolclick"
-                    android:text="Join Pool"
+                    android:text="@string/join_pool"
                     android:textAllCaps="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/createbtn"
@@ -52,9 +53,9 @@
                     android:id="@+id/createbtn"
                     android:layout_width="103dp"
                     android:layout_height="40dp"
-                    android:background="@color/md_lime_A400"
+                    android:background="#63bc43"
                     android:onClick="createpclick"
-                    android:text="Create Pool"
+                    android:text="@string/create_pool"
                     android:textAllCaps="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +66,9 @@
                     android:id="@+id/digitibtn"
                     android:layout_width="103dp"
                     android:layout_height="42dp"
-                    android:background="@color/md_lime_A400"
+                    android:background="#63bc43"
                     android:onClick="digilandclick"
-                    android:text="Digitize Land"
+                    android:text="@string/digitize_land"
                     android:textAllCaps="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="What You Want to Do?"
+                    android:text="@string/what_you_want_to_do"
                     android:textSize="17sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/joinbtn"
@@ -93,8 +94,8 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/md_cyan_A200"
-            android:text="Joined Pools/Owned Pools"
+            android:background="#63bc43"
+            android:text="@string/joined_pools_owned_pools"
             android:textSize="18sp"
             android:textStyle="bold" />
 

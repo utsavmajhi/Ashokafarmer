@@ -1,5 +1,32 @@
 <resources>
     <string name="app_name">Ashokafarmer</string>
+    <string name="select_lands">Select Lands</string>
+    <string name="select_the_lands_from_which_you_want_to_make_pool">Select the lands from which you want to make pool</string>
+    <string name="finalize_submission">Finalize Submission</string>
+    <string name="crops_harvested_till_now_tomato_nexpected_profits_previous_week">Crops Harvested till Now:Tomato  Expected Profits Previous week:</string>
+    <string name="brief_description">Brief Description:</string>
+    <string name="pool_name">Pool Name</string>
+    <string name="iit_patna_bihar">IIT Patna,Bihar</string>
+    <string name="area">Area:</string>
+    <string name="_12_hectare">12 hectare</string>
+    <string name="estimated_profits">Estimated Profits:</string>
+    <string name="digitalise_lands">Digitalise Lands</string>
+    <string name="please_click_on_get_location">Please click on Get Location</string>
+    <string name="get_location">Get Location</string>
+    <string name="location">Location:</string>
+    <string name="submit_for_verification">Submit for Verification</string>
+    <string name="owner_of_the_land">Owner of the Land</string>
+    <string name="land_name_you_can_choose_any_word">Land Name(You can choose any word)</string>
+    <string name="fill_all_the_details_below">Fill all the details below</string>
+    <string name="jai_javaan_jai_kisaan">Jai Javaan Jai Kisaan</string>
+    <string name="welcome">Welcome</string>
+    <string name="join_pool">Join Pool</string>
+    <string name="create_pool">Create Pool</string>
+    <string name="digitize_land">Digitize Land</string>
+    <string name="what_you_want_to_do">What You Want to Do?</string>
+    <string name="joined_pools_owned_pools">Joined Pools/Owned Pools</string>
+    <string name="registration">Registration</string>
+    <string name="submit">Submit</string>
     <string-array name="LandName">
         <item>Bihta</item>
         <item>ambagan</item>
