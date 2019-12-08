@@ -58,10 +58,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/digilname"
+            android:id="@+id/digilandaddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/land_name_you_can_choose_any_word" />
+            android:hint="Land Address" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -100,6 +101,7 @@
         android:layout_marginLeft="36dp"
         android:text="@string/please_click_on_get_location"
         android:textSize="18sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textView9"
@@ -107,16 +109,18 @@
 
     <Button
         android:id="@+id/getlocbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="31dp"
         android:background="@color/md_blue_400"
         android:onClick="getlocationclick"
         android:text="@string/get_location"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="@+id/currentlocgps"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toEndOf="@+id/currentlocgps"
-        app:layout_constraintTop_toTopOf="@+id/currentlocgps" />
+        app:layout_constraintTop_toTopOf="@+id/currentlocgps"
+        app:layout_constraintVertical_bias="0.416" />
 
     <Button
         android:id="@+id/button3"

@@ -1,10 +1,7 @@
 package com.example.ashokafarmer;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -18,7 +15,7 @@ public class digitiselandactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_digitiselandactivity);
         location=findViewById(R.id.currentlocgps);
-        lname=findViewById(R.id.digilname);
+        lname=findViewById(R.id.digilandaddress);
         lownername=findViewById(R.id.digiownname);
     }
 
