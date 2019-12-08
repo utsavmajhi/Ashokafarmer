@@ -14,7 +14,7 @@
             android:id="@+id/rellay1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/md_green_A200"
+            android:background="#ffff99"
             android:paddingBottom="20dp">
 
             <RelativeLayout

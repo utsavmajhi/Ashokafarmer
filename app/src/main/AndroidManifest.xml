@@ -16,7 +16,9 @@
         <activity android:name=".joinpoolexpand"></activity>
         <activity android:name=".profileactivity" />
         <activity android:name=".detailactivity" />
-        <activity android:name=".joinpoolactivity" />
+        <activity android:name=".joinpoolactivity"
+            android:parentActivityName=".homepage"/>
+
         <activity android:name=".createpoolactivity" />
         <activity android:name=".digitiselandactivity" />
         <activity android:name=".homepage" />
