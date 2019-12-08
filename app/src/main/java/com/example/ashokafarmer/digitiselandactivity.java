@@ -9,13 +9,13 @@ import android.widget.Toast;
 
 public class digitiselandactivity extends AppCompatActivity {
     private GpsTracker gpsTracker;
-    private TextView location,lname,lownername;
+    private TextView location,laddress,lownername;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_digitiselandactivity);
         location=findViewById(R.id.currentlocgps);
-        lname=findViewById(R.id.digilandaddress);
+        laddress=findViewById(R.id.digilandaddress);
         lownername=findViewById(R.id.digiownname);
     }
 
@@ -42,11 +42,34 @@ public class digitiselandactivity extends AppCompatActivity {
     //submit button for digitalise verfication of land
     public void digionclick(View view) {
 
-        String loc= (String) location.getText();
-        String landname=lname.getText().toString();
+        String loc="";
+        String landadd=laddress.getText().toString();
         String ownername=lownername.getText().toString();
 
-        Toast.makeText(digitiselandactivity.this, "Done Uploading data for Verification", Toast.LENGTH_SHORT).show();
+
+        //gps tracker starts
+        gpsTracker = new GpsTracker(digitiselandactivity.this);
+        if(gpsTracker.canGetLocation()){
+            double latitude = gpsTracker.getLatitude();
+            double longitude = gpsTracker.getLongitude();
+            loc= String.valueOf("Latitude="+latitude+"\n"+"Longitude="+longitude);
+
+        }else{
+            gpsTracker.showSettingsAlert();
+        }
+
+
+        //gps tracker ends
+        if(loc.isEmpty()||landadd.isEmpty()||ownername.isEmpty())
+        {
+            Toast.makeText(digitiselandactivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+
+            Toast.makeText(digitiselandactivity.this, "Done Uploading data for Verification"+"\n", Toast.LENGTH_SHORT).show();
+        }
+
 
         //server backend work
 //hi

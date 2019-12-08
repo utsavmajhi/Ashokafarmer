@@ -27,6 +27,12 @@
     <string name="joined_pools_owned_pools">Joined Pools/Owned Pools</string>
     <string name="registration">Registration</string>
     <string name="submit">Submit</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="aadhar_number">Aadhar Number</string>
+    <string name="password">Password</string>
+    <string name="jai_kisaan_jai_vigyan">JAI KISAAN JAI VIGYAN</string>
     <string-array name="LandName">
         <item>Bihta</item>
         <item>ambagan</item>
