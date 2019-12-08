@@ -16,14 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <include
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/main_page_toolbar"
-                layout="@layout/app_bar_layout"
-                >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="Ashoka Farmer"
+                app:titleTextColor="@color/material_drawer_background">
 
-            </include>
 
-
+            </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView

@@ -13,12 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".joinpoolexpand"></activity>
+        <activity android:name=".ownjoinedpoolexpand"></activity>
+        <activity
+            android:name=".ownlandprofit"
+            android:parentActivityName=".homepage"></activity>
+        <activity android:name=".joinpoolexpand" />
         <activity android:name=".profileactivity" />
         <activity android:name=".detailactivity" />
-        <activity android:name=".joinpoolactivity"
-            android:parentActivityName=".homepage"/>
-
+        <activity
+            android:name=".joinpoolactivity"
+            android:parentActivityName=".homepage" />
         <activity android:name=".createpoolactivity" />
         <activity android:name=".digitiselandactivity" />
         <activity android:name=".homepage" />

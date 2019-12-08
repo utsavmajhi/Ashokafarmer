@@ -58,6 +58,15 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mpoollist=new ArrayList<>();
         mRequestQueue= Volley.newRequestQueue(this);
+        //gps permission setup
+        try {
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        //gps permission setup ends
 
         parseJSON();
 
@@ -81,10 +90,11 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Profile");
-        PrimaryDrawerItem item2=new PrimaryDrawerItem().withIdentifier(2).withName("Logout");
+        PrimaryDrawerItem item2=new PrimaryDrawerItem().withIdentifier(2).withName("Own Land Profit");
         PrimaryDrawerItem item3=new PrimaryDrawerItem().withIdentifier(3).withName("Join Pool");
         PrimaryDrawerItem item4=new PrimaryDrawerItem().withIdentifier(4).withName("Create Pool");
         PrimaryDrawerItem item5=new PrimaryDrawerItem().withIdentifier(5).withName("Digitize Land");
+        PrimaryDrawerItem item6=new PrimaryDrawerItem().withIdentifier(6).withName("Logout");
 
 
 
@@ -98,7 +108,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                 .withDisplayBelowStatusBar(false)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1, item2,item3 , item4, item5
+                        item1, item2,item3 , item4, item5,item6
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -115,9 +125,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                                 startActivity(p1);
                                 break;
                             case 2:
-                                Toast.makeText(homepage.this, "Logout", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(homepage.this,MainActivity.class));
-                                finish();
+                                startActivity(new Intent(homepage.this,ownlandprofit.class));
                                 break;
 
                             case 3:
@@ -131,6 +139,13 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                             case 5:
                                 startActivity(new Intent(homepage.this,digitiselandactivity.class));
                                 break;
+                            case 6:
+                                Toast.makeText(homepage.this, "Logout", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(homepage.this,MainActivity.class));
+                                finish();
+                                break;
+
+
 
                         }
                         return true;
@@ -141,9 +156,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
 
 
 
-        setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Ashoka Farmer");
-        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+
 
 
 
@@ -188,38 +201,6 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
             }
         });
         mRequestQueue.add(request);
-
-    }
-
-
-    //digitize land button click
-    public void digilandclick(View view) {
-        try {
-            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
-                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        startActivity(new Intent(homepage.this,digitiselandactivity.class));
-
-
-    }
-    //digitise land activity ends
-
-    //create pool activity clicking
-    public void createpclick(View view) {
-        startActivity(new Intent(homepage.this,createpoolactivity.class));
-
-    }
-    //create pool activity ends
-
-
-    //join pools activity clicking
-    public void joinpoolclick(View view) {
-
-            startActivity(new Intent(homepage.this,joinpoolactivity.class));
-
 
     }
 
