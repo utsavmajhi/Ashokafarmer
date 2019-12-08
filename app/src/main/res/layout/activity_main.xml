@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="@string/jai_javaan_jai_kisaan"
-        android:textSize="33sp"
+        android:text="@string/jai_kisaan_jai_vigyan"
+        android:textSize="30sp"
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +36,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="329dp"
+        app:cardBackgroundColor="#ebf3d6"
         android:layout_height="187dp"
         android:layout_marginTop="40dp"
         app:cardCornerRadius="20dp"

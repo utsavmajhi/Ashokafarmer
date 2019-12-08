@@ -57,7 +57,6 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mpoollist=new ArrayList<>();
-
         mRequestQueue= Volley.newRequestQueue(this);
 
         parseJSON();
@@ -82,7 +81,11 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Profile");
-        PrimaryDrawerItem item2=new PrimaryDrawerItem().withIdentifier(4).withName("Logout");
+        PrimaryDrawerItem item2=new PrimaryDrawerItem().withIdentifier(2).withName("Logout");
+        PrimaryDrawerItem item3=new PrimaryDrawerItem().withIdentifier(3).withName("Join Pool");
+        PrimaryDrawerItem item4=new PrimaryDrawerItem().withIdentifier(4).withName("Create Pool");
+        PrimaryDrawerItem item5=new PrimaryDrawerItem().withIdentifier(5).withName("Digitize Land");
+
 
 
         //create the drawer and remember the `Drawer` result object
@@ -95,7 +98,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                 .withDisplayBelowStatusBar(false)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1, item2
+                        item1, item2,item3 , item4, item5
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -115,6 +118,18 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                                 Toast.makeText(homepage.this, "Logout", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(homepage.this,MainActivity.class));
                                 finish();
+                                break;
+
+                            case 3:
+                                startActivity(new Intent(homepage.this,joinpoolactivity.class));
+                                break;
+
+                            case 4:
+                                startActivity(new Intent(homepage.this,createpoolactivity.class));
+                                break;
+
+                            case 5:
+                                startActivity(new Intent(homepage.this,digitiselandactivity.class));
                                 break;
 
                         }
