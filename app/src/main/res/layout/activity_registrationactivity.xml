@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
+    android:background="@drawable/sky"
     tools:context=".registrationactivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,9 +102,9 @@
                     android:layout_width="190dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@color/md_cyan_A700"
+                    android:background="#ffff99"
                     android:onClick="regisubclick"
-                    android:text="Submit"
+                    android:text="@string/submit"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
-                    android:text="Registration"
+                    android:text="@string/registration"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     app:fontFamily="sans-serif-medium"
