@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#ffff99"
     android:layout_height="match_parent"
     tools:context=".joinpoolactivity">
 
@@ -15,7 +16,7 @@
             android:id="@+id/cardView6"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            app:cardBackgroundColor="@color/md_green_A400">
+            app:cardBackgroundColor="@color/md_light_green_A200">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -25,10 +26,10 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Join Pool"
-                    android:textSize="39sp"
+                    android:text="@string/join_pool"
+                    android:textSize="40sp"
                     android:textStyle="bold"
-                    app:fontFamily="@font/aladin"
+                    app:fontFamily="serif"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
