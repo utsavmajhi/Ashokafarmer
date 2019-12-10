@@ -4,23 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fffecc"
+    android:background="@color/md_blue_grey_100"
     tools:context=".detailactivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/detailtoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@color/md_blue_grey_100">
+
+
+        </androidx.appcompat.widget.Toolbar>
+
         <Button
             android:id="@+id/joinbtn"
             android:layout_width="261dp"
             android:layout_height="56dp"
-            android:layout_marginTop="28dp"
-            android:background="#fcff85"
+            android:layout_marginTop="20dp"
+            android:background="@color/md_blue_grey_300"
             android:onClick="joinclick"
             android:text="@string/join_pool"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/material_drawer_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView3" />
@@ -31,13 +40,12 @@
             android:layout_height="177dp"
             android:layout_marginStart="6dp"
             android:layout_marginLeft="6dp"
-            android:layout_marginTop="15dp"
             android:layout_marginEnd="6dp"
             android:layout_marginRight="6dp"
             app:cardCornerRadius="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/detailtoolbar">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -196,7 +204,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
             android:layout_width="350dp"
-            android:layout_height="275dp"
+            android:layout_height="245dp"
             android:layout_margin="5dp"
             android:layout_marginStart="6dp"
             android:layout_marginLeft="6dp"

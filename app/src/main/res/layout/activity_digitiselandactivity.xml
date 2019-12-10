@@ -4,17 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fffecc"
+    android:background="@color/md_blue_grey_50"
     tools:context=".digitiselandactivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="131dp"
-        app:cardBackgroundColor="#075e54"
+        app:cardBackgroundColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/digitoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@color/colorPrimary">
+
+
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -99,7 +108,7 @@
         android:layout_width="185dp"
         android:layout_height="52dp"
         android:layout_marginTop="136dp"
-        android:background="#fcff85"
+        android:background="@color/md_blue_grey_200"
         android:onClick="digionclick"
         android:text="@string/submit_for_verification"
         android:textAllCaps="false"

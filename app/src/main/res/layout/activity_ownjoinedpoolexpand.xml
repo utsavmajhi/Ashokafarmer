@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fffecc"
+    android:background="@color/md_blue_grey_100"
     tools:context=".ownjoinedpoolexpand">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,10 +59,10 @@
             android:layout_width="261dp"
             android:layout_height="56dp"
             android:layout_marginTop="28dp"
-            android:background="#fcff85"
+            android:background="@color/md_blue_grey_600"
             android:text="NONE"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/material_drawer_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView3" />
@@ -196,10 +196,9 @@
             android:id="@+id/cardView3"
             android:layout_width="349dp"
             android:layout_height="273dp"
-            android:layout_margin="10dp"
             android:layout_marginStart="6dp"
             android:layout_marginLeft="6dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="6dp"
             android:layout_marginRight="6dp"
             app:cardCornerRadius="25dp"

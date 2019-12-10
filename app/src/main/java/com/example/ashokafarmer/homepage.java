@@ -74,7 +74,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
         //NAVIGATION BAR DIRECTLY IMPORTED FROM MIKEPENZ
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
-                .withHeaderBackground(R.drawable.gardenland)
+                .withHeaderBackground(R.drawable.headernav)
                 .addProfiles(
                         new ProfileDrawerItem().withName("Utsav Majhi").withEmail("deadsnipper@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile_photo))
                 )
@@ -94,7 +94,9 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
         PrimaryDrawerItem item3=new PrimaryDrawerItem().withIdentifier(3).withName("Join Pool");
         PrimaryDrawerItem item4=new PrimaryDrawerItem().withIdentifier(4).withName("Create Pool");
         PrimaryDrawerItem item5=new PrimaryDrawerItem().withIdentifier(5).withName("Digitize Land");
-        PrimaryDrawerItem item6=new PrimaryDrawerItem().withIdentifier(6).withName("Logout");
+        PrimaryDrawerItem item6=new PrimaryDrawerItem().withIdentifier(6).withName("Pending Requests");
+        PrimaryDrawerItem item7=new PrimaryDrawerItem().withIdentifier(7).withName("Rejected Requests");
+        PrimaryDrawerItem item8=new PrimaryDrawerItem().withIdentifier(8).withName("Logout");
 
 
 
@@ -108,7 +110,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                 .withDisplayBelowStatusBar(false)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1, item2,item3 , item4, item5,item6
+                        item1, item2,item3 , item4, item5,item6,item7,item8
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -140,7 +142,18 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                                 startActivity(new Intent(homepage.this,digitiselandactivity.class));
                                 break;
                             case 6:
+                                Toast.makeText(homepage.this, "Pending Requests", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(homepage.this,pendingrequests.class));
+                                break;
+                            case 7:
+                                Toast.makeText(homepage.this, "Rejected Requests", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(homepage.this,rejectedrequests.class));
+                                break;
+                            case 8:
                                 Toast.makeText(homepage.this, "Logout", Toast.LENGTH_SHORT).show();
+                                //during logout
+
+                                //during logout activity ends
                                 startActivity(new Intent(homepage.this,MainActivity.class));
                                 finish();
                                 break;

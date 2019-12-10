@@ -1,6 +1,7 @@
 package com.example.ashokafarmer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 public class digitiselandactivity extends AppCompatActivity {
     private GpsTracker gpsTracker;
     private TextView location,laddress,lownername;
+    private Toolbar digitoolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +19,12 @@ public class digitiselandactivity extends AppCompatActivity {
         location=findViewById(R.id.currentlocgps);
         laddress=findViewById(R.id.digilandaddress);
         lownername=findViewById(R.id.digiownname);
+        digitoolbar=findViewById(R.id.digitoolbar);
+
+
+        setSupportActionBar(digitoolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
 

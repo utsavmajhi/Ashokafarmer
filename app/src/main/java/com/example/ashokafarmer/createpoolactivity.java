@@ -2,6 +2,7 @@ package com.example.ashokafarmer;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 
 public class createpoolactivity extends AppCompatActivity {
 
+    private Toolbar crtoolbar;
     TextView mItemSelected;
     String[] listItems;
     boolean[] checkedItems;
@@ -25,6 +27,9 @@ public class createpoolactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createpoolactivity);
         mItemSelected = (TextView) findViewById(R.id.itemselect);
+        crtoolbar=findViewById(R.id.crpooltoolbar);
+        setSupportActionBar(crtoolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
     }

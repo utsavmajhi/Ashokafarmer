@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fffecc"
+    android:background="@color/md_blue_grey_100"
     tools:context=".createpoolactivity">
 
     <Button
@@ -12,12 +12,13 @@
         android:layout_width="172dp"
         android:layout_height="55dp"
         android:layout_marginTop="304dp"
-        android:background="#fcff85"
+        android:background="@color/md_blue_grey_300"
         android:onClick="createselland"
-        android:textStyle="bold"
         android:text="@string/select_lands"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/material_drawer_background"
+        android:textStyle="bold"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,9 +37,18 @@
         android:id="@+id/cardView5"
         android:layout_width="match_parent"
         android:layout_height="207dp"
-        app:cardBackgroundColor="#075E54"
+        app:cardBackgroundColor="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="1dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/crpooltoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@color/colorPrimary">
+
+
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -49,11 +59,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:fontFamily="serif"
                 android:text="@string/create_pool"
+                android:textColor="#FFFFFF"
                 android:textSize="32sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:fontFamily="serif"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,8 +88,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:padding="5dp"
         android:gravity="center"
+        android:padding="5dp"
         android:text="@string/select_the_lands_from_which_you_want_to_make_pool"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -92,10 +102,11 @@
         android:layout_width="172dp"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"
-        android:background="#fcff85"
+        android:background="@color/md_blue_grey_300"
         android:onClick="slelandsubclick"
-        android:textStyle="bold"
         android:text="@string/finalize_submission"
+        android:textColor="@color/material_drawer_background"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
