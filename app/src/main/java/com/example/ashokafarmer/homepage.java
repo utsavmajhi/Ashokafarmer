@@ -48,6 +48,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
     public static String NAME;
     public static String LOCATION ;
     public static String SELECTEDPOOLID;
+    public static  String nofjoinedpools;
     //added extra datas for manipulating later(report is not initialised currently)
     public static final String EXTRA_REPORT = null;
     public  static String INVESTMENTS;
@@ -145,6 +146,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                             case 1:
                                 //pass token for getting user details
                                 Intent p1=new Intent(homepage.this,profileactivity.class);
+                                p1.putExtra("nofpoolsjoined",nofjoinedpools);
                                 //pass the token or required details
                                 startActivity(p1);
                                 break;
@@ -260,6 +262,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                 if(response.isSuccessful())
                 {
                     List<Pool> listpool=response.body().getPools();
+                    nofjoinedpools= String.valueOf(listpool.size());//for passing it to profile intent for no of joined pools
                     for(int i=0;i<listpool.size();i++)
                     {
                         String id=listpool.get(i).getId();

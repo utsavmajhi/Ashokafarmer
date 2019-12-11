@@ -1,6 +1,7 @@
 package com.example.ashokafarmer;
 
-import com.android.volley.toolbox.StringRequest;
+import com.example.ashokafarmer.digitiselandmodels.Getnewlandformat;
+import com.example.ashokafarmer.digitiselandmodels.Sendnewlandformat;
 import com.example.ashokafarmer.loginmodels.Logingetdet;
 import com.example.ashokafarmer.loginmodels.Loginsendformat;
 import com.example.ashokafarmer.pendingrequestsmodels.Pendinggetformat;
@@ -35,5 +36,8 @@ public interface ApiInterface {
     //all pools he joined till now
     @GET("farmers/pools")
     Call<Getalreadyjoinpoolformat> getalreadyjoinpool(@Header("Authorization") String header);
+
+    @POST("farmers/lands")
+    Call<Getnewlandformat> getnewland(@Header("Authorization") String header, @Body Sendnewlandformat sendnewlandformat);
 
 }

@@ -3,10 +3,21 @@ package com.example.ashokafarmer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.ashokafarmer.digitiselandmodels.Getnewlandformat;
+import com.example.ashokafarmer.digitiselandmodels.Sendnewlandformat;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class digitiselandactivity extends AppCompatActivity {
     private GpsTracker gpsTracker;
@@ -20,6 +31,7 @@ public class digitiselandactivity extends AppCompatActivity {
         larea=findViewById(R.id.digiarea);
         llocation=findViewById(R.id.digilocation);
         digitoolbar=findViewById(R.id.digitoolbar);
+
 
 
         setSupportActionBar(digitoolbar);
@@ -49,6 +61,16 @@ public class digitiselandactivity extends AppCompatActivity {
 
     //submit button for digitalise verfication of land
     public void digionclick(View view) {
+        //shared preference
+        SharedPreferences sharedPreferences=getSharedPreferences("Secrets",MODE_PRIVATE);
+        String currentusername=sharedPreferences.getString("username","");
+        String currentemail=sharedPreferences.getString("email","");
+        String currentph=sharedPreferences.getString("phone","");
+        String currentaadhar=sharedPreferences.getString("aadhar","");
+        String currenttoken=sharedPreferences.getString("token","");
+        //shared preferences ends
+
+
 
         String loclat="";
         String loclong="";
@@ -76,17 +98,39 @@ public class digitiselandactivity extends AppCompatActivity {
         }
         else
         {
+            Retrofit.Builder builder=new Retrofit.Builder()
+                    .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                    .addConverterFactory(GsonConverterFactory.create());
+            Retrofit retrofit=builder.build();
+            ApiInterface apiInterface=retrofit.create(ApiInterface.class);
+            Sendnewlandformat senddet=new Sendnewlandformat(landarea,landlocation,loclat,loclong);
+            Call<Getnewlandformat> call=apiInterface.getnewland(currenttoken,senddet);
+            call.enqueue(new Callback<Getnewlandformat>() {
+                @Override
+                public void onResponse(Call<Getnewlandformat> call, Response<Getnewlandformat> response) {
+                    if(response.isSuccessful())
+                    {
+                        String message=response.body().getMessage();
+                        String loc=response.body().getLand().getLat();
+                        Toast.makeText(digitiselandactivity.this, "Done Uploading data for Verification", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(digitiselandactivity.this,homepage.class));
+                        finish();
+                    }
+                    else
+                    {
+                        Toast.makeText(digitiselandactivity.this, "Error:"+response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-            Toast.makeText(digitiselandactivity.this, "Done Uploading data for Verification"+"\n", Toast.LENGTH_SHORT).show();
+                @Override
+                public void onFailure(Call<Getnewlandformat> call, Throwable t) {
+                    Toast.makeText(digitiselandactivity.this, "Error:"+t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
-
-
-        //server backend work
-//hi
-
-
         //server backend work ends
     }
 
-    //get location activity ends
+
 }

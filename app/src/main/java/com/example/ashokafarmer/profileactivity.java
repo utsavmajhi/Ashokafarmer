@@ -2,6 +2,7 @@ package com.example.ashokafarmer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,6 +16,10 @@ public class profileactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profileactivity);
+
+        Intent intent=getIntent();
+        String nofjpools=intent.getStringExtra("nofpoolsjoined");
+
 
         pname=findViewById(R.id.profileusername);
         pemail=findViewById(R.id.proemail);
@@ -36,6 +41,11 @@ public class profileactivity extends AppCompatActivity {
         pemail.setText(currentemail);
         paadhar.setText(currentaadhar);
         pphone.setText(currentph);
+        if(!nofjpools.isEmpty())
+        {
+            pnoofpool.setText(nofjpools);
+        }
+
 
 
 
