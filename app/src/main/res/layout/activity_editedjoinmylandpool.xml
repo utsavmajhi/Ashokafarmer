@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pendingrequests">
+    tools:context=".editedjoinmylandpool">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,21 +12,19 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/pendingtoolbar"
+            android:id="@+id/editedjointoolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            app:title="Pending Requests"
+            app:title="Approved Lands"
             app:titleTextColor="@color/material_drawer_background">
 
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/pendingreqtxt"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ownverifiedrecycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="21sp" />
-
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

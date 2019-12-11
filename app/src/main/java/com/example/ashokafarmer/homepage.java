@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -58,6 +59,18 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mpoollist=new ArrayList<>();
         mRequestQueue= Volley.newRequestQueue(this);
+        //get shared prefrences parameters
+
+        SharedPreferences sharedPreferences=getSharedPreferences("Secrets",MODE_PRIVATE);
+        String currentusername=sharedPreferences.getString("username","");
+        String currentemail=sharedPreferences.getString("email","");
+        String currentph=sharedPreferences.getString("phone","");
+        String currentaadhar=sharedPreferences.getString("aadhar","");
+
+        //
+
+
+
         //gps permission setup
         try {
             if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
@@ -76,7 +89,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.headernav)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Utsav Majhi").withEmail("deadsnipper@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile_photo))
+                        new ProfileDrawerItem().withName(currentusername).withEmail(currentemail).withIcon(getResources().getDrawable(R.drawable.profile_photo))
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
@@ -90,7 +103,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Profile");
-        PrimaryDrawerItem item2=new PrimaryDrawerItem().withIdentifier(2).withName("Own Land Profit");
+        PrimaryDrawerItem item2=new PrimaryDrawerItem().withIdentifier(2).withName("My Lands");
         PrimaryDrawerItem item3=new PrimaryDrawerItem().withIdentifier(3).withName("Join Pool");
         PrimaryDrawerItem item4=new PrimaryDrawerItem().withIdentifier(4).withName("Create Pool");
         PrimaryDrawerItem item5=new PrimaryDrawerItem().withIdentifier(5).withName("Digitize Land");
@@ -142,7 +155,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                                 startActivity(new Intent(homepage.this,digitiselandactivity.class));
                                 break;
                             case 6:
-                                Toast.makeText(homepage.this, "Pending Requests", Toast.LENGTH_SHORT).show();
+
                                 startActivity(new Intent(homepage.this,pendingrequests.class));
                                 break;
                             case 7:
@@ -154,6 +167,12 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                                 //during logout
 
                                 //during logout activity ends
+                                //clear shared preferences
+                                SharedPreferences pref = getApplicationContext().getSharedPreferences("Secrets", MODE_PRIVATE);
+                               SharedPreferences.Editor editor=pref.edit();
+                               editor.clear();
+                               editor.apply();
+                                //
                                 startActivity(new Intent(homepage.this,MainActivity.class));
                                 finish();
                                 break;

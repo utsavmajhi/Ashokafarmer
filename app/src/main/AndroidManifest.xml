@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rejectedrequests"></activity>
+        <activity android:name=".editedjoinmylandpool" android:parentActivityName=".homepage">
+
+        </activity>
+        <activity android:name=".rejectedrequests" />
         <activity android:name=".pendingrequests" />
         <activity android:name=".ownjoinedpoolexpand" />
         <activity
@@ -29,10 +32,12 @@
         <activity
             android:name=".joinpoolactivity"
             android:parentActivityName=".homepage" />
-        <activity android:name=".createpoolactivity"
-            android:parentActivityName=".homepage"/>
-        <activity android:name=".digitiselandactivity"
-            android:parentActivityName=".homepage"/>
+        <activity
+            android:name=".createpoolactivity"
+            android:parentActivityName=".homepage" />
+        <activity
+            android:name=".digitiselandactivity"
+            android:parentActivityName=".homepage" />
         <activity android:name=".homepage" />
         <activity android:name=".registrationactivity" />
         <activity android:name=".MainActivity">
