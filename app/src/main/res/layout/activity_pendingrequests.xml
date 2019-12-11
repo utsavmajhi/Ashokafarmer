@@ -25,7 +25,8 @@
             android:id="@+id/pendingreqtxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="21sp" />
+            android:textSize="21sp"
+            app:fontFamily="sans-serif-condensed-medium" />
 
     </LinearLayout>
 

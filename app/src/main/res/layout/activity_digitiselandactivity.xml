@@ -69,10 +69,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/digilandaddress"
+            android:id="@+id/digiarea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Land Address" />
+            android:hint="Land Area" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,10 +87,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/digiownname"
+            android:id="@+id/digilocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/owner_of_the_land" />
+            android:hint="Location" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

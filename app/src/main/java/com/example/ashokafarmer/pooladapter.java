@@ -47,14 +47,14 @@ public class pooladapter extends RecyclerView.Adapter<pooladapter.poolViewHolder
     poolitems currentitem=mpoolitemslist.get(position);
     String imageurl=currentitem.getmImageurl();
     String poolname=currentitem.getPoolname();
-    String poolarea=currentitem.getArea();
+    String poolinvest=currentitem.getArea();
     String poollocation=currentitem.getLocation();
     String poolreport=currentitem.getReport();
 
 
         holder.mpoolname.setText(poolname);
         holder.mlocation.setText(poollocation);
-        holder.marea.setText(poolarea);
+        holder.minvestments.setText(poolinvest);
         //Picasso.with(mContext).load(imageurl).into(holder.mimageView);
 
 
@@ -71,7 +71,7 @@ public class pooladapter extends RecyclerView.Adapter<pooladapter.poolViewHolder
         public CircleImageView mimageView;
         public TextView mpoolname;
         public TextView mlocation;
-        public TextView marea;
+        public TextView minvestments;
 
 
         public poolViewHolder(@NonNull View itemView) {
@@ -79,7 +79,7 @@ public class pooladapter extends RecyclerView.Adapter<pooladapter.poolViewHolder
             mimageView=itemView.findViewById(R.id.poolimage);
             mpoolname=itemView.findViewById(R.id.pname);
             mlocation=itemView.findViewById(R.id.pooladdresstxt);
-            marea=itemView.findViewById(R.id.poolarea);
+            minvestments=itemView.findViewById(R.id.poolinvestments);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

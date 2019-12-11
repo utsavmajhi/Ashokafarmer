@@ -16,8 +16,10 @@
         <activity android:name=".editedjoinmylandpool" android:parentActivityName=".homepage">
 
         </activity>
-        <activity android:name=".rejectedrequests" />
-        <activity android:name=".pendingrequests" />
+        <activity android:name=".rejectedrequests"
+            android:parentActivityName=".homepage"/>
+        <activity android:name=".pendingrequests"
+            android:parentActivityName=".homepage"/>
         <activity android:name=".ownjoinedpoolexpand" />
         <activity
             android:name=".ownlandprofit"

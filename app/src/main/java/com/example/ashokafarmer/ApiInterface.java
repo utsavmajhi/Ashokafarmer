@@ -1,17 +1,17 @@
 package com.example.ashokafarmer;
 
+import com.android.volley.toolbox.StringRequest;
 import com.example.ashokafarmer.loginmodels.Logingetdet;
 import com.example.ashokafarmer.loginmodels.Loginsendformat;
+import com.example.ashokafarmer.pendingrequestsmodels.Pendinggetformat;
 import com.example.ashokafarmer.registrationmodels.Registgetformat;
 import com.example.ashokafarmer.registrationmodels.Registsendformat;
-
-import java.util.List;
+import com.example.ashokafarmer.rejectedrequestsmodel.Rejectedgetformat;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface ApiInterface {
@@ -28,5 +28,12 @@ public interface ApiInterface {
 
     @GET("farmers/landsadminpending")
     Call<Pendinggetformat> getpendingrequests(@Header("Authorization") String header);
+
+    @GET("farmers/landsadminrejected")
+    Call<Rejectedgetformat> getrejectedrequests(@Header("Authorization") String header);
+
+    //all pools he joined till now
+    @GET("farmers/pools")
+    Call<Getalreadyjoinpoolformat> getalreadyjoinpool(@Header("Authorization") String header);
 
 }

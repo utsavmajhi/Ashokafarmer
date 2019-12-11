@@ -1,11 +1,12 @@
 
-package com.example.ashokafarmer;
+package com.example.ashokafarmer.rejectedrequestsmodel;
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Pendinggetformat {
+public class Rejectedgetformat {
 
     @SerializedName("lands")
     @Expose

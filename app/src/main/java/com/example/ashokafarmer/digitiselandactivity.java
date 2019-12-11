@@ -10,15 +10,15 @@ import android.widget.Toast;
 
 public class digitiselandactivity extends AppCompatActivity {
     private GpsTracker gpsTracker;
-    private TextView location,laddress,lownername;
+    private TextView location,larea,llocation;
     private Toolbar digitoolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_digitiselandactivity);
         location=findViewById(R.id.currentlocgps);
-        laddress=findViewById(R.id.digilandaddress);
-        lownername=findViewById(R.id.digiownname);
+        larea=findViewById(R.id.digiarea);
+        llocation=findViewById(R.id.digilocation);
         digitoolbar=findViewById(R.id.digitoolbar);
 
 
@@ -50,9 +50,10 @@ public class digitiselandactivity extends AppCompatActivity {
     //submit button for digitalise verfication of land
     public void digionclick(View view) {
 
-        String loc="";
-        String landadd=laddress.getText().toString();
-        String ownername=lownername.getText().toString();
+        String loclat="";
+        String loclong="";
+        String landarea=larea.getText().toString().trim();
+        String landlocation=llocation.getText().toString().trim();
 
 
         //gps tracker starts
@@ -60,7 +61,8 @@ public class digitiselandactivity extends AppCompatActivity {
         if(gpsTracker.canGetLocation()){
             double latitude = gpsTracker.getLatitude();
             double longitude = gpsTracker.getLongitude();
-            loc= String.valueOf("Latitude="+latitude+"\n"+"Longitude="+longitude);
+            loclat= String.valueOf(latitude);
+            loclong= String.valueOf(longitude);
 
         }else{
             gpsTracker.showSettingsAlert();
@@ -68,7 +70,7 @@ public class digitiselandactivity extends AppCompatActivity {
 
 
         //gps tracker ends
-        if(loc.isEmpty()||landadd.isEmpty()||ownername.isEmpty())
+        if(loclat.isEmpty()||loclong.isEmpty()||landarea.isEmpty()||landlocation.isEmpty())
         {
             Toast.makeText(digitiselandactivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
         }
