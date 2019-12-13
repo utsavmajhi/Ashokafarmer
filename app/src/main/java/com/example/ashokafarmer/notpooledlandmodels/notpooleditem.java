@@ -1,4 +1,4 @@
-package com.example.ashokafarmer;
+package com.example.ashokafarmer.notpooledlandmodels;
 
 public class notpooleditem {
 

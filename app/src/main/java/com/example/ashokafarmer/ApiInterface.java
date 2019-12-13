@@ -1,9 +1,14 @@
 package com.example.ashokafarmer;
 
+import com.example.ashokafarmer.allradyjoinedpools.Getalreadyjoinpoolformat;
 import com.example.ashokafarmer.digitiselandmodels.Getnewlandformat;
 import com.example.ashokafarmer.digitiselandmodels.Sendnewlandformat;
+import com.example.ashokafarmer.joinpoolrecyclerdata.Getallpoolformat;
+import com.example.ashokafarmer.joinpoolrequestbyfarmermodel.Getformatjoinpool;
+import com.example.ashokafarmer.joinpoolrequestbyfarmermodel.Sendformatjoinpool;
 import com.example.ashokafarmer.loginmodels.Logingetdet;
 import com.example.ashokafarmer.loginmodels.Loginsendformat;
+import com.example.ashokafarmer.notpooledlandmodels.Notpoollandgetformat;
 import com.example.ashokafarmer.pendingrequestsmodels.Pendinggetformat;
 import com.example.ashokafarmer.registrationmodels.Registgetformat;
 import com.example.ashokafarmer.registrationmodels.Registsendformat;
@@ -14,6 +19,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiInterface {
 
@@ -48,5 +54,16 @@ public interface ApiInterface {
     @POST("farmers/reqpoolcreate")
     Call<Createreqgetformat> createnewpool(@Header("Authorization") String header,@Body Createreqsentformat createreqsentformat);
 
+    //all existing pools till now
+    @GET("admins/pools")
+    Call<Getallpoolformat> getallpools(@Header("Authorization") String header);
+
+    //get pool info and reports
+    @GET("admins/pool/{poolid}")
+    Call<Poolinfogetformat> getdetailsofpool(@Header("Authorization") String header, @Path("poolid") String poolid);
+
+    //for joining a pool
+    @POST("farmers/reqpooljoin")
+    Call<Getformatjoinpool> joinpool(@Header("Authorization") String header, @Body Sendformatjoinpool sendformatjoinpool);
 
 }

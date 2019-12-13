@@ -1,5 +1,5 @@
 
-package com.example.ashokafarmer;
+package com.example.ashokafarmer.joinpoolrecyclerdata;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

@@ -69,7 +69,7 @@ public class choicejoincreate extends AppCompatActivity {
         Intent i=new Intent(choicejoincreate.this,joinpoolactivity.class);
         Intent intent=getIntent();
         String lidselect=intent.getStringExtra("ID_EXTRA");
-        i.putExtra("ID_EXTRA",lidselect);
+        i.putExtra("ID_EXTRA1",lidselect);
         startActivity(i);
 
 

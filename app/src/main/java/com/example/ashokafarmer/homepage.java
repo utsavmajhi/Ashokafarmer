@@ -14,11 +14,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ashokafarmer.allradyjoinedpools.Getalreadyjoinpoolformat;
+import com.example.ashokafarmer.unknownclasses.Pool;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -27,10 +26,6 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,13 +109,12 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Profile");
         PrimaryDrawerItem item2=new PrimaryDrawerItem().withIdentifier(2).withName("My Lands");
-        PrimaryDrawerItem item3=new PrimaryDrawerItem().withIdentifier(3).withName("Join Pool");
-        PrimaryDrawerItem item4=new PrimaryDrawerItem().withIdentifier(4).withName("Create Pool");
-        PrimaryDrawerItem item5=new PrimaryDrawerItem().withIdentifier(5).withName("Digitize Land");
-        PrimaryDrawerItem item6=new PrimaryDrawerItem().withIdentifier(6).withName("Pending Requests");
-        PrimaryDrawerItem item7=new PrimaryDrawerItem().withIdentifier(7).withName("Rejected Requests");
-        PrimaryDrawerItem item8=new PrimaryDrawerItem().withIdentifier(8).withName("Logout");
-        PrimaryDrawerItem item9=new PrimaryDrawerItem().withIdentifier(9).withName("Join/Init");
+        PrimaryDrawerItem item3=new PrimaryDrawerItem().withIdentifier(3).withName("Join/Init");
+        PrimaryDrawerItem item4=new PrimaryDrawerItem().withIdentifier(4).withName("Digitize Land");
+        PrimaryDrawerItem item5=new PrimaryDrawerItem().withIdentifier(5).withName("Pending Requests");
+        PrimaryDrawerItem item6=new PrimaryDrawerItem().withIdentifier(6).withName("Rejected Requests");
+        PrimaryDrawerItem item7=new PrimaryDrawerItem().withIdentifier(7).withName("Logout");
+
 
 
 
@@ -134,7 +128,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                 .withDisplayBelowStatusBar(false)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1, item2,item3 , item4, item5,item6,item7,item8,item9
+                        item1, item2,item3 , item4, item5,item6,item7
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -156,42 +150,40 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                                 break;
 
                             case 3:
-                                startActivity(new Intent(homepage.this,joinpoolactivity.class));
-                                break;
-
-                            case 4:
                                 startActivity(new Intent(homepage.this,createpoolactivity.class));
                                 break;
 
-                            case 5:
+                            case 4:
                                 startActivity(new Intent(homepage.this,digitiselandactivity.class));
                                 break;
-                            case 6:
 
+                            case 5:
                                 startActivity(new Intent(homepage.this,pendingrequests.class));
                                 break;
-                            case 7:
+                            case 6:
                                 Toast.makeText(homepage.this, "Rejected Requests", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(homepage.this,rejectedrequests.class));
                                 break;
-                            case 8:
+                            case 7:
                                 Toast.makeText(homepage.this, "Logout", Toast.LENGTH_SHORT).show();
                                 //during logout
 
                                 //during logout activity ends
                                 //clear shared preferences
                                 SharedPreferences pref = getApplicationContext().getSharedPreferences("Secrets", MODE_PRIVATE);
-                               SharedPreferences.Editor editor=pref.edit();
-                               editor.clear();
-                               editor.apply();
+                                SharedPreferences.Editor editor=pref.edit();
+                                editor.clear();
+                                editor.apply();
                                 //
                                 startActivity(new Intent(homepage.this,MainActivity.class));
                                 finish();
                                 break;
 
-                            case 9:
-                                startActivity(new Intent(homepage.this,createpoolactivity.class));
-                                break;
+
+
+
+
+
 
 
 

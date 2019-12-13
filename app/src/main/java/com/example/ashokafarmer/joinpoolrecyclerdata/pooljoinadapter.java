@@ -47,11 +47,11 @@ public class pooljoinadapter extends RecyclerView.Adapter<pooljoinadapter.poolVi
     public void onBindViewHolder(@NonNull poolViewHolder holder, int position) {
 
     pooljoinitems currentitem=mpoolitemslist.get(position);
-    String imageurl=currentitem.getmImageurl();
+    //String imageurl=currentitem.getmImageurl();
     String poolname=currentitem.getPoolname();
-    String poolinvestments=currentitem.getArea();
-    String poollocation=currentitem.getLocation();
-    String poolreport=currentitem.getReport();
+    String poolinvestments=currentitem.getPooltotinvest();
+    String poollocation=currentitem.getPoollocation();
+    //String poolreport=currentitem.getReport();
 
 
         holder.mpoolname.setText(poolname);

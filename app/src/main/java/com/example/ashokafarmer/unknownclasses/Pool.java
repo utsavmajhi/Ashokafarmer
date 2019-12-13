@@ -1,5 +1,5 @@
 
-package com.example.ashokafarmer;
+package com.example.ashokafarmer.unknownclasses;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -9,7 +9,7 @@ public class Pool {
 
     @SerializedName("totalInvestment")
     @Expose
-    private double totalInvestment;
+    private Integer totalInvestment;
     @SerializedName("prevProfits")
     @Expose
     private List<Object> prevProfits = null;
@@ -39,13 +39,13 @@ public class Pool {
     private String engineerId;
     @SerializedName("__v")
     @Expose
-    private double v;
+    private Integer v;
 
-    public double getTotalInvestment() {
+    public Integer getTotalInvestment() {
         return totalInvestment;
     }
 
-    public void setTotalInvestment(double totalInvestment) {
+    public void setTotalInvestment(Integer totalInvestment) {
         this.totalInvestment = totalInvestment;
     }
 
@@ -121,11 +121,11 @@ public class Pool {
         this.engineerId = engineerId;
     }
 
-    public double getV() {
+    public Integer getV() {
         return v;
     }
 
-    public void setV(double v) {
+    public void setV(Integer v) {
         this.v = v;
     }
 

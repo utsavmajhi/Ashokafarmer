@@ -1,7 +1,9 @@
 
-package com.example.ashokafarmer;
+package com.example.ashokafarmer.notpooledlandmodels;
 
 import java.util.List;
+
+import com.example.ashokafarmer.unknownclasses.Land;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

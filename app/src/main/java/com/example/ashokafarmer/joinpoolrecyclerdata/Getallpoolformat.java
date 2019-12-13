@@ -1,11 +1,13 @@
 
-package com.example.ashokafarmer;
+package com.example.ashokafarmer.joinpoolrecyclerdata;
 
 import java.util.List;
+
+import com.example.ashokafarmer.joinpoolrecyclerdata.Pool;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Getalreadyjoinpoolformat {
+public class Getallpoolformat {
 
     @SerializedName("pools")
     @Expose
