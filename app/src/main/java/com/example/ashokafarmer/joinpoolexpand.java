@@ -33,8 +33,8 @@ public class joinpoolexpand extends AppCompatActivity {
 
 
         Intent intent=getIntent();
-       String selectedpoolid=intent.getStringArrayExtra("ID_EXTRA")[0];
-       String selectedpoolname=intent.getStringArrayExtra("ID_EXTRA")[1];
+        String selectedpoolid=intent.getStringArrayExtra("ID_EXTRA")[0];
+        String selectedpoolname=intent.getStringArrayExtra("ID_EXTRA")[1];
         String selectedpoollocation=intent.getStringArrayExtra("ID_EXTRA")[2];
         String selectedpoolinvestments=intent.getStringArrayExtra("ID_EXTRA")[3];
         String selectedpoolengineerid=intent.getStringArrayExtra("ID_EXTRA")[4];
