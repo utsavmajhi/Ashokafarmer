@@ -120,6 +120,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
         PrimaryDrawerItem item6=new PrimaryDrawerItem().withIdentifier(6).withName("Pending Requests");
         PrimaryDrawerItem item7=new PrimaryDrawerItem().withIdentifier(7).withName("Rejected Requests");
         PrimaryDrawerItem item8=new PrimaryDrawerItem().withIdentifier(8).withName("Logout");
+        PrimaryDrawerItem item9=new PrimaryDrawerItem().withIdentifier(9).withName("Join/Init");
 
 
 
@@ -133,7 +134,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                 .withDisplayBelowStatusBar(false)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1, item2,item3 , item4, item5,item6,item7,item8
+                        item1, item2,item3 , item4, item5,item6,item7,item8,item9
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -186,6 +187,10 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
                                 //
                                 startActivity(new Intent(homepage.this,MainActivity.class));
                                 finish();
+                                break;
+
+                            case 9:
+                                startActivity(new Intent(homepage.this,createpoolactivity.class));
                                 break;
 
 

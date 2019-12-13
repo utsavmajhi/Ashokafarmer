@@ -3,9 +3,12 @@ package com.example.ashokafarmer;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,119 +16,94 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class createpoolactivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class createpoolactivity extends AppCompatActivity implements notpooledlandAdapter.onitemclicklistener{
 
     private Toolbar crtoolbar;
-    TextView mItemSelected;
-    String[] listItems;
-    boolean[] checkedItems;
-    ArrayList<Integer> mUserItems = new ArrayList<>();
+
+    private RecyclerView mRecyclerView;
+    private notpooledlandAdapter mnotpoollandAdapter;
+    private ArrayList<notpooleditem> mnotpoollandlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createpoolactivity);
-        mItemSelected = (TextView) findViewById(R.id.itemselect);
+        mRecyclerView=findViewById(R.id.yourlandrecycler);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mnotpoollandlist=new ArrayList<>();
         crtoolbar=findViewById(R.id.crpooltoolbar);
         setSupportActionBar(crtoolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        showhisnotpooledlands();
 
     }
 
-//selecting toggle menu for diffrent lands he has which has already been verified
-    public void createselland(View view) {
+    private void showhisnotpooledlands() {
+        SharedPreferences sharedPreferences=getSharedPreferences("Secrets",MODE_PRIVATE);
+        String currenttoken=sharedPreferences.getString("token","");
 
-        //backend work
-
-
-
-
-        //backend work ends
-
-
-
-        //pass the list contents from json get and put it in listitems
-        listItems = getResources().getStringArray(R.array.LandName);
-        checkedItems = new boolean[listItems.length];
-        //passing list contentts ends
-
-
-        //hardcoded the toggle menu for selecting lands
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(createpoolactivity.this);
-        mBuilder.setTitle("Lands");
-        mBuilder.setMultiChoiceItems(listItems, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+        Retrofit.Builder builder=new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                .addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit=builder.build();
+        ApiInterface apiInterface=retrofit.create(ApiInterface.class);
+        Call<Notpoollandgetformat> call=apiInterface.getmynotpooled(currenttoken);
+        call.enqueue(new Callback<Notpoollandgetformat>() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int position, boolean isChecked) {
-//
-                if(isChecked){
-                    mUserItems.add(position);
-                }else{
-                    mUserItems.remove((Integer.valueOf(position)));
-                }
-            }
-        });
+            public void onResponse(Call<Notpoollandgetformat> call, Response<Notpoollandgetformat> response) {
+                if(response.isSuccessful())
+                {
+                    List<Land> la=response.body().getLands();
+                    for(int i=0;i<la.size();i++)
+                    {
+                        String lid=la.get(i).getId();
+                        String llat=la.get(i).getLat();
+                        String llong=la.get(i).getLong();
+                        String lloc=la.get(i).getLocation();
+                        String larea=la.get(i).getArea();
 
-        mBuilder.setCancelable(false);
-        mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                String item = "";
-                //basically museritem has all the things just pass this array
-                for (int i = 0; i < mUserItems.size(); i++) {
-                    item = item + listItems[mUserItems.get(i)];
-                    if (i != mUserItems.size() - 1) {
-                        item = item + "\n";
+                       mnotpoollandlist.add(new notpooleditem(lid,"lat:"+llat+"\nlong:"+llong,larea,lloc,"",""));
+
                     }
+                    mnotpoollandAdapter = new notpooledlandAdapter(createpoolactivity.this, mnotpoollandlist);
+                    mRecyclerView.setAdapter(mnotpoollandAdapter);
+                    mnotpoollandAdapter.setOnItemClickListener(createpoolactivity.this);
+
                 }
-                //showing the slected items
-                mItemSelected.setText(item);
-            }
-        });
-
-        mBuilder.setNegativeButton("DISMISS", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-
-        mBuilder.setNeutralButton("CLEAR ALL", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                for (int i = 0; i < checkedItems.length; i++) {
-                    checkedItems[i] = false;
-                    mUserItems.clear();
-                    mItemSelected.setText("");
+                else
+                {
+                    Toast.makeText(createpoolactivity.this, "Error:"+response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
+
+            @Override
+            public void onFailure(Call<Notpoollandgetformat> call, Throwable t) {
+                Toast.makeText(createpoolactivity.this, "Error:"+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
-
-        AlertDialog mDialog = mBuilder.create();
-        mDialog.show();
-        //Multiselect ends ...output is array or string of text separated by comma
-
-
 
 
     }
 
 
-    //final submit btn click for lands selcted to make pool
-    public void slelandsubclick(View view) {
-
-        if(mItemSelected.getText().equals("")||mItemSelected.getText().equals("No Land selected"))
-        {
-            Toast.makeText(this, "Please Select Lands to proceed \n Note: If land name is not shown, then contact Engineer/Administartor", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(this, "Creating Pool Done!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(createpoolactivity.this,homepage.class));
-            finish();
-        }
+    @Override
+    public void onItemClick(int position) {
+        notpooleditem clickedItem=mnotpoollandlist.get(position);
+        String pooliddselected=clickedItem.get_id();
+        Intent i=new Intent(createpoolactivity.this,choicejoincreate.class);
+        i.putExtra("ID_EXTRA",pooliddselected);
+        startActivity(i);
+       // Toast.makeText(this, pooliddselected, Toast.LENGTH_SHORT).show();
 
     }
-    //
 }

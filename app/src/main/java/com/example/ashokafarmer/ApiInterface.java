@@ -40,4 +40,13 @@ public interface ApiInterface {
     @POST("farmers/lands")
     Call<Getnewlandformat> getnewland(@Header("Authorization") String header, @Body Sendnewlandformat sendnewlandformat);
 
+    //showing land which is verfifed and not been in any pool
+    @GET("farmers/landsnotpooled")
+    Call<Notpoollandgetformat> getmynotpooled(@Header("Authorization") String header);
+
+    //send pid to create new pool by farmer
+    @POST("farmers/reqpoolcreate")
+    Call<Createreqgetformat> createnewpool(@Header("Authorization") String header,@Body Createreqsentformat createreqsentformat);
+
+
 }

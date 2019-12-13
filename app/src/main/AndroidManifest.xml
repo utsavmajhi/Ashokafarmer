@@ -13,13 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".editedjoinmylandpool" android:parentActivityName=".homepage">
-
-        </activity>
-        <activity android:name=".rejectedrequests"
-            android:parentActivityName=".homepage"/>
-        <activity android:name=".pendingrequests"
-            android:parentActivityName=".homepage"/>
+        <activity android:name=".choicejoincreate"></activity>
+        <activity
+            android:name=".editedjoinmylandpool"
+            android:parentActivityName=".homepage"></activity>
+        <activity
+            android:name=".rejectedrequests"
+            android:parentActivityName=".homepage" />
+        <activity
+            android:name=".pendingrequests"
+            android:parentActivityName=".homepage" />
         <activity android:name=".ownjoinedpoolexpand" />
         <activity
             android:name=".ownlandprofit"
