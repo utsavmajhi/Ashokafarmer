@@ -66,4 +66,7 @@ public interface ApiInterface {
     @POST("farmers/reqpooljoin")
     Call<Getformatjoinpool> joinpool(@Header("Authorization") String header, @Body Sendformatjoinpool sendformatjoinpool);
 
+    @GET("farmers/mylands")
+    Call<Mylandgetformat> getmylands(@Header("Authorization") String header);
+
 }
