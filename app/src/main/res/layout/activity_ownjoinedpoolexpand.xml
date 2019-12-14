@@ -18,7 +18,6 @@
             android:layout_margin="5dp"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            app:cardCornerRadius="30dp"
             app:contentPadding="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +44,7 @@
                     android:layout_width="313dp"
                     android:layout_height="85dp"
                     android:layout_marginTop="12dp"
-                    android:text="Tarun Kumar-8907873928"
+                    android:text="Pritam singh-8907873928"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -76,7 +75,6 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="6dp"
             android:layout_marginRight="6dp"
-            app:cardCornerRadius="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -201,7 +199,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="6dp"
             android:layout_marginRight="6dp"
-            app:cardCornerRadius="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView2">

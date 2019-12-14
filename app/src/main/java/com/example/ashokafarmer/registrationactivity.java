@@ -1,6 +1,7 @@
 package com.example.ashokafarmer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,6 +22,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class registrationactivity extends AppCompatActivity {
 
     private TextView nm,adhr,phn,emai,pass;
+    private Toolbar mtoolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,10 @@ public class registrationactivity extends AppCompatActivity {
         phn=findViewById(R.id.regisphn);
         emai=findViewById(R.id.regisem);
         pass=findViewById(R.id.regispass);
+        mtoolbar=findViewById(R.id.registoolbar);
+
+        setSupportActionBar(mtoolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -84,7 +91,7 @@ public class registrationactivity extends AppCompatActivity {
                         editor.putString("phone",phone);
                         editor.putString("id",id);
                         editor.apply();
-                        Toast.makeText(registrationactivity.this, "Successfully craeted your account", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(registrationactivity.this, "Successfully created your account", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(registrationactivity.this,homepage.class));
                     }
                     else

@@ -44,7 +44,8 @@
             android:name=".digitiselandactivity"
             android:parentActivityName=".homepage" />
         <activity android:name=".homepage" />
-        <activity android:name=".registrationactivity" />
+        <activity android:name=".registrationactivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

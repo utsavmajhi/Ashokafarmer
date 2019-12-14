@@ -301,7 +301,7 @@ public class homepage extends AppCompatActivity implements pooladapter.onitemcli
         extras.putString(INVESTMENTS,clickedItem.getArea());*/
 
         //imageurl==engineersid
-        Toast.makeText(this, clickedItem.getmImageurl(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, clickedItem.getmImageurl(), Toast.LENGTH_SHORT).show();
         detailIntent.putExtra("ID_EXTRA", new String[] { clickedItem.get_id(),clickedItem.getPoolname(),clickedItem.getLocation(),clickedItem.getArea(),clickedItem.getmImageurl()});
         startActivity(detailIntent);
 
