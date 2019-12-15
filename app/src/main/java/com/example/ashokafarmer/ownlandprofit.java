@@ -48,7 +48,7 @@ public class ownlandprofit extends AppCompatActivity {
         String currenttoken=sharedPreferences.getString("token","");
 
         Retrofit.Builder builder=new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                .baseUrl("https://ashokabackend.herokuapp.com/")//change it afterwards when everthing is hosted
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit=builder.build();
         ApiInterface apiInterface=retrofit.create(ApiInterface.class);

@@ -96,7 +96,7 @@ public class joinpoolactivity extends AppCompatActivity implements pooljoinadapt
 
         //backend retrofit
         Retrofit.Builder builder=new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                .baseUrl("https://ashokabackend.herokuapp.com/")//change it afterwards when everthing is hosted
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit=builder.build();
         ApiInterface apiInterface=retrofit.create(ApiInterface.class);
