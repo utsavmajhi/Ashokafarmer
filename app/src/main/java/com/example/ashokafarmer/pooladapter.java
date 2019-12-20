@@ -49,7 +49,7 @@ public class pooladapter extends RecyclerView.Adapter<pooladapter.poolViewHolder
     String poolname=currentitem.getPoolname();
     String poolinvest=currentitem.getArea();
     String poollocation=currentitem.getLocation();
-    String poolreport=currentitem.getReport();
+    String poolreport=currentitem.getReport();//not required as it is imported individually from a function by another retrofit function
 
 
         holder.mpoolname.setText(poolname);
