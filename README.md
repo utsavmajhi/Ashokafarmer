@@ -4,4 +4,4 @@
 
 ## Screenshots
 
-<img src="https://github.com/utsavmajhi/Ashokainvestorend/blob/master/temp/5.gif" width="220" height="400" title="" alt=""></a>
+|<img src="https://github.com/utsavmajhi/Ashokafarmer/blob/master/temp/2.gif" width="220" height="400" title="" alt=""></a>|<img src="https://github.com/utsavmajhi/Ashokafarmer/blob/master/temp/3.gif" width="220" height="400" title="" alt=""></a>
